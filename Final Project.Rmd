@@ -2,8 +2,8 @@
 title: "Final Project"
 author: "Jiahao Xu"
 output:
-  word_document: default
   pdf_document: default
+  word_document: default
 data: 05/02/2019
 ---
 
@@ -108,38 +108,39 @@ The p-value of this chi-square test is much smaller than the significant level a
 #4 Power analysis 
 The arcsine transformation is calculated as two times the arcsine of the square root of the proportion. Doing this can transform the proportional parameter from (0,1) to (−π/2,π/2). The effect of the arcsine transformation is similar to the logit, in that it pulls out the ends of the distribution, but not to the extent that the logit does. 
 
-
-Just like it is described in the book, the power to detect the difference between hypothetical parameters .65 and .45 is .48 while the power to detect the difference between hypothetical parameters .25 and .05 is .82, even though the difference between both pairs of values is .20, which means hypothetical parameters of this binomial distribution doesn not provide a scale of equal units of detectability because 0.25 and 0.05 fall into one extreme of the range.
-
+The power to detect the hypothetical parameters .65 and .45 is .48 while the power to detect the difference between hypothetical parameters .25 and .05 is .82, even though the difference between both pairs of values is .20. The reason why this happens is that 0.25 and 0.05 are at the end(extreme value) of the distribution. Therefore, it takes more power to detect and arcsine transformation can solve this problem.
 
 #5 Use the Method of Moments and MLE to find estimators as described in these three cases.
 # Case1 MLE of Exponential Distribution
 
-$f(x;\lambda)=\lambda e^{-\lambda x}$
+$$f(x;\lambda)=\lambda e^{-\lambda x}$$
 
-$L(\lambda;X_1,...,X_n)=\lambda e^{-\lambda X_1}\lambda e^{-\lambda X_2}...\lambda e^{-\lambda X_n}$
+$$L(\lambda;X_1,...,X_n)=\lambda e^{-\lambda X_1}\lambda e^{-\lambda X_2}...\lambda e^{-\lambda X_n}$$
 
-$L(\lambda;X_1,...,X_n)=\lambda^ne^{-\lambda\sum X_i}$
+$$L(\lambda;X_1,...,X_n)=\lambda^ne^{-\lambda\sum X_i}$$
 
-$l(\lambda;X_1,...,X_n)=nlog(\lambda)-\lambda \sumX_i$
+$$l(\lambda;X_1,...,X_n)=nlog(\lambda)-\lambda \sum X_i$$
 
-$\frac{dl(\lambda;X1,...,Xn)}{d\lambda}=\frac{n}{\lambda}-\sum X=0$
+$$\frac{dl(\lambda;X1,...,Xn)}{d\lambda}=\frac{n}{\lambda}-\sum X=0$$
 
-$\hat\lambda=\frac{n}{\sum X_i}=\frac{1}{\bar X_n}$
+$$\hat\lambda=\frac{n}{\sum X_i}=\frac{1}{\bar X_n}$$
 
 
 
 # Case2 Moment Estimator and MLE for new distribution $\theta$
 MOM:
-$\int_{a}^{b} x^2 dx$
-E(x)=$\int_{0}^{1} f(x)dx$ 
-E(x)=$\int_{0}^{1} x(1-\theta)+2\thetax^2 dx$
-E(x)=$\int_{0}^{1} x-x\theta+2\thetax^2 dx$
-$E(x)&=\frac{1}{6}\theta+\frac{1}{2}$
+\begin{align}
+E[X]\ & =\ \int^1_0 x((1-\theta)\ +\ 2\theta x)dx \notag \\ 
+& =\ (1-\theta)\int^1_0 xdx +\ \int^1_0 2\theta x^2 dx \notag \\ 
+& =\ (1-\theta)\frac{1}{2}x^2\arrowvert^1_0\ +\ 2\theta \frac{1}{3}x^3\arrowvert^1_0\ \notag \\ 
+& =\ \frac{1}{2} -\ \frac{1}{2}\theta\ +\ \frac{2}{3}\theta \notag
+\end{align}
+$$\Rightarrow\ E[X]\ =\ \frac{1}{2} +\ \frac{1}{6}\theta\ \Rightarrow\ \bar{x}\ =\ \frac{1}{2} +\ \frac{1}{6}\theta\ \Rightarrow\ \hat{\theta}\ =\ 6\bar{x}\ -\ 3 $$
 
 MLE:
-$L(\theta;X_1,...,X_n)=[(1-\theta)+2\theta X_1]...[(1-\theta)+2\theta X_n]$
-$l(\theta;X_1,...,X_n)=log[(1-\theta)+2\theta X_1]...log[(1-\theta)+2\theta X_1]$
+$$L(\theta;X_1,...,X_n)=[(1-\theta)+2\theta X_1]...[(1-\theta)+2\theta X_n]$$
+
+$$l(\theta;X_1,...,X_n)=log[(1-\theta)+2\theta X_1]...log[(1-\theta)+2\theta X_1]$$
 Under this situation, we cannot taking the derivative of $l(\theta;X_1,...,X_n)$ to find the maximum value with corresponding $\theta$.
 
 # Case3 Rainfall analysis
