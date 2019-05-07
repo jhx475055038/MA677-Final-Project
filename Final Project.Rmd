@@ -2,7 +2,8 @@
 title: "Final Project"
 author: "Jiahao Xu"
 output:
-  pdf_document: default
+  pdf_document: 
+    latex_engine: lualatex
   word_document: default
 data: 05/02/2019
 ---
@@ -133,9 +134,9 @@ MOM:
 E[X]\ & =\ \int^1_0 x((1-\theta)\ +\ 2\theta x)dx \notag \\ 
 & =\ (1-\theta)\int^1_0 xdx +\ \int^1_0 2\theta x^2 dx \notag \\ 
 & =\ (1-\theta)\frac{1}{2}x^2\arrowvert^1_0\ +\ 2\theta \frac{1}{3}x^3\arrowvert^1_0\ \notag \\ 
-& =\ \frac{1}{2} -\ \frac{1}{2}\theta\ +\ \frac{2}{3}\theta \notag
+& =\ \frac{1}{2} -\ \frac{1}{2}\theta\ +\ \frac{2}{3}\theta \notag \\
+& =\ \frac{1}{6}\theta+\frac{1}{2} \notag
 \end{align}
-$$\Rightarrow\ E[X]\ =\ \frac{1}{2} +\ \frac{1}{6}\theta\ \Rightarrow\ \bar{x}\ =\ \frac{1}{2} +\ \frac{1}{6}\theta\ \Rightarrow\ \hat{\theta}\ =\ 6\bar{x}\ -\ 3 $$
 
 MLE:
 $$L(\theta;X_1,...,X_n)=[(1-\theta)+2\theta X_1]...[(1-\theta)+2\theta X_n]$$
@@ -181,6 +182,7 @@ According to the Empirical the theoretical CDFs and P-P plot, the data points al
 
 ```{r,warning=FALSE}
 # calculate MOM and MLE
+set.seed(2019)
 mom <- fitdist(alldata, "gamma",method = "mme")
 boot_mom <- bootdist(mom)
 summary(boot_mom)
@@ -189,7 +191,7 @@ mle <- fitdist(alldata, "gamma",method = "mle")
 boot_mle <- bootdist(mle)
 summary(boot_mle)
 ```
-According to summary of MOM, the 95% confidence interval of shape from bootstrap sample is (0.27,0.53), the rate is (1.17,2.58). For MLE, the 95% confidence interval of shape from bootstrap sample is (0.38,0.51),the rate is (1.56,2.56). Apparently, the MLE estimates have narraow CI and thus lower variances.I would choose to present MLE as the estimator because it has lower variance.
+According to summary of MOM, the 95% confidence interval of shape from bootstrap sample is (0.27,0.53), the rate is (1.18,2.59). For MLE, the 95% confidence interval of shape from bootstrap sample is (0.38,0.51),the rate is (1.56,2.54).The MLE estimates have higher rate and more narraow CI, which means lower variance.Therefore, I would choose to present MLE as the estimator.
 
 # Analysis of decision theory article
 ```{r}
