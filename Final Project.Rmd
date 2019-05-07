@@ -141,7 +141,7 @@ E[X]\ & =\ \int^1_0 x((1-\theta)\ +\ 2\theta x)dx \notag \\
 MLE:
 $$L(\theta;X_1,...,X_n)=[(1-\theta)+2\theta X_1]...[(1-\theta)+2\theta X_n]$$
 
-$$l(\theta;X_1,...,X_n)=log[(1-\theta)+2\theta X_1]...log[(1-\theta)+2\theta X_1]$$
+$$l(\theta;X_1,...,X_n)=log[(1-\theta)+2\theta X_1]+...+log[(1-\theta)+2\theta X_1]$$
 Under this situation, we cannot taking the derivative of $l(\theta;X_1,...,X_n)$ to find the maximum value with corresponding $\theta$.
 
 # Case3 Rainfall analysis
