@@ -1,6 +1,6 @@
 ---
 title: "Final Project"
-author: "Jiahao Xu"
+author: "Jiahao Xu" 
 output:
   pdf_document: 
     latex_engine: lualatex
@@ -104,7 +104,7 @@ data33<- matrix(c(23,120,275,547,615,347,107,54,129,95,210,186,165,12), nrow=2,
 chisq.test(data33,correct = F)
 
 ```
-The p-value of this chi-square test is much smaller than the significant level alpha=0.05. Therefore, we reject the null hypothesis. Sharks in Australia were, on average, are more vicious than the sharks in the United States.The statistical power of the test chi-square test is 1.
+The p-value of this chi-square test is much smaller than the significant level alpha=0.05. Therefore, we reject the null hypothesis. Sharks in Australia were, on average, are more vicious than the sharks in the United States.The statistical power of the chi-square test is 1.
 
 #4 Power analysis 
 The arcsine transformation is calculated as two times the arcsine of the square root of the proportion. Doing this can transform the proportional parameter from (0,1) to (−π/2,π/2). The effect of the arcsine transformation is similar to the logit, in that it pulls out the ends of the distribution, but not to the extent that the logit does. 
@@ -142,9 +142,9 @@ MLE:
 $$L(\theta;X_1,...,X_n)=[(1-\theta)+2\theta X_1]...[(1-\theta)+2\theta X_n]$$
 
 $$l(\theta;X_1,...,X_n)=log[(1-\theta)+2\theta X_1]+...+log[(1-\theta)+2\theta X_1]$$
-Under this situation, we cannot taking the derivative of $l(\theta;X_1,...,X_n)$ to find the maximum value with corresponding $\theta$.
+Under this situation, we cannot taking the derivative of $l(\theta;X_1,...,X_n)$ to find the maximum value with corresponding $\theta$. 
 
-# Case3 Rainfall analysis
+# Case3 Rainfall analysis (Working with PJ and Shannon)
 ```{r}
 # read the data
 data60 <- read.table("ill-60.txt", quote="\"", comment.char="")
@@ -196,9 +196,11 @@ According to summary of MOM, the 95% confidence interval of shape from bootstrap
 # Analysis of decision theory article
 ```{r}
 #Derive equations (10a), (10b), (10c) in Section 3.2.2.
-#Use R to reproduce the calculations in Table 1 which is explained in 3.2.3. Describe what you have done and what it means in the context the the treatment decision used as an illustration in the Manski article.
+#Use R to reproduce the calculations in Table 1 which is explained in 3.2.3. 
+
 
 
 
 
 ```
+Totally no idea how to deal with this problem! In that paper, there are many mathematic symbols with no explanations. 
